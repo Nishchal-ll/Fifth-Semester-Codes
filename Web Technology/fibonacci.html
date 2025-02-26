@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishchal</title>
+</head>
+<body>
+    <h1>The fibonacci series is:</h1>
+    <script>
+        var a= prompt("Enter the number of terms");
+        const fibonacci = () => {
+            if(a==1){
+                console.log("0");
+            }
+            else if (a==2){
+                console.log("0 1");
+            }
+            else{
+                var fibo=[];
+                var first=0;
+                var second=1;
+                fibo.push(first);
+                fibo.push(second);
+                var next;
+                for(i=2;i<a;i++){
+                    next=first+second;
+                    fibo.push(next);
+                    first=second;
+                    second=next;
+                }   
+                document.write(fibo.join(" "));
+            }
+        }
+        fibonacci(a);
+    </script>
+</body>
+</html>
