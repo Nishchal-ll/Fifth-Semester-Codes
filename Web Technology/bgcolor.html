@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishchal</title>
+</head>
+<body>
+    <button onclick="toggleMode()">Change</button>
+
+<script>
+function toggleMode() {
+    if (document.body.style.backgroundColor === 'red') {
+        document.body.style.backgroundColor = 'blue';
+        document.cookie = "prevcolor=blue; path=/";  
+    } else {
+        document.body.style.backgroundColor = 'red';
+        document.cookie = "prevcolor=red; path=/";  
+    }
+} 
+if (document.cookie.includes("prevcolor=blue")) {
+    document.body.style.backgroundColor = 'blue';
+} else {
+    document.body.style.backgroundColor = 'red';
+}
+</script>
+</body>
+</html>

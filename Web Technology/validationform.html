@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="registrationFo rm">
+        <h1>Registration Form</h1>
+        Name: 
+        <input type="text" id="name" name="name" minlength="3" pattern="[a-zA-Z\s]+" placeholder="Enter your name" ><br><br>
+        Email:
+        <input type="email" id="email" name="email" placeholder="Enter your email" ><br><br>
+        Password:
+        <input type="password" id="password" name="password" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@!$#]).{8,}$" placeholder="Enter your password" ><br><br>
+        <button type="submit">Submit</button>
+      </form>
+      
+      <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+          const nameInput = document.getElementById("name");
+          if (!nameInput.checkValidity()) {
+            event.preventDefault();  
+            alert("Please enter a valid name with only letters and spaces.");
+          }
+        });
+
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            const emailInput = document.getElementById("email");
+            if (!emailInput.value.endsWith("@gmail.com")) {
+              event.preventDefault(); 
+              alert("Please enter valid email address");
+            }
+          });
+
+          document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            const password = document.getElementById("password");
+            if (!password.checkValidity()) {
+              event.preventDefault();  
+              alert("Please enter a valid password");
+            }
+          });
+
+      </script>
+      
+</body>
+</html>
