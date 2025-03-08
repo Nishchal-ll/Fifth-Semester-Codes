@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <title>Nishchal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      p {
+        font-size: 60px;
+        font-weight: bold;
+      }
+    </style>
+</head>
+<body>
+<p id="demo"></p>
+<button onclick="startTimer()">Start</button>
+<script>
+var countDownDate;
+var x;
+function startTimer() {
+    countDownDate = new Date().getTime() + 3000;
+    x = setInterval(function() {
+        var now = new Date().getTime();
+        var distance = countDownDate - now;
+
+        var minutes = Math.floor(distance / 60000);
+        var seconds = Math.floor((distance % 60000) / 1000);
+
+        document.getElementById("demo").innerHTML = minutes + "m " + seconds + "s";
+
+        if (distance < 0) {
+            clearInterval(x);
+            alert("Expired");
+            document.getElementById("demo").innerHTML = "Expired";
+        }
+    }, 1000);
+}
+</script>
+
+</body>
+</html>
